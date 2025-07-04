@@ -1,6 +1,7 @@
 package davidedangelo;
 
 import com.github.javafaker.Faker;
+import davidedangelo.exception.ElementoNonTrovatoException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -13,5 +14,14 @@ public class Application {
     public static void main(String[] args) {
         EntityManager em = emf.createEntityManager();
         Faker faker = new Faker(Locale.ITALY);
+        try{
+
+        }catch (ElementoNonTrovatoException e){
+            System.out.println(e.getMessage());
+        }finally {
+            em.close();
+            emf.close();
+        }
+
     }
 }

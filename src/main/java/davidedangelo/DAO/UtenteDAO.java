@@ -18,5 +18,26 @@ public class UtenteDAO {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }
+    }//salva
+
+    public void eliminaUtente(Utente utente) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            Utente utenteDaEliminare = em.find(Utente.class, utente.getNumero_tessera());
+            if (utenteDaEliminare != null) {
+                em.remove(utenteDaEliminare);
+                System.out.println("utente eliminato");
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+        } finally {
+            em.close();
+        }
+    }//elimina
+
 }

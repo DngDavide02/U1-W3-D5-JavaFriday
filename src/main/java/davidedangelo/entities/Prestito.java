@@ -24,8 +24,7 @@ public class Prestito {
 
     public Prestito(){}
 
-    public Prestito(int id, Utente utente, Letture elemento_prestato, LocalDate inizio_prestito, LocalDate restituzione_prevista, LocalDate restituzione_effettiva) {
-        this.id = id;
+    public Prestito(Utente utente, Letture elemento_prestato, LocalDate inizio_prestito, LocalDate restituzione_prevista, LocalDate restituzione_effettiva) {
         this.utente = utente;
         this.elemento_prestato = elemento_prestato;
         this.inizio_prestito = inizio_prestito;
@@ -79,5 +78,17 @@ public class Prestito {
 
     public void setRestituzione_effettiva(LocalDate restituzione_effettiva) {
         this.restituzione_effettiva = restituzione_effettiva;
+    }
+
+    @Override
+    public String toString() {
+        return "Prestito{" +
+                "id=" + id +
+                ", utente=" + utente +
+                ", elemento_prestato=" + elemento_prestato +
+                ", inizio_prestito=" + inizio_prestito +
+                ", restituzione_prevista=" + restituzione_prevista +
+                ", restituzione_effettiva=" + restituzione_effettiva +
+                '}';
     }
 }

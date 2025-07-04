@@ -49,4 +49,14 @@ public class Utente {
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
+
+    @Override
+    public String toString() {
+        return "Utente{" +
+                "numero_tessera=" + numero_tessera +
+                ", nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", data_di_nascita=" + data_di_nascita +
+                '}';
+    }
 }
